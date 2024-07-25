@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Profile</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Inline styles for profile picture and profile information */
+  .profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+  }
+
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 4px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .profile-name {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  .profile-email {
+    color: #666;
+    margin-bottom: 1rem;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 1rem;
+  }
+
+  .section {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+  }
+
+  .section-header {
+    border-bottom: 2px solid #f2f2f2;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.8rem;
+    color: #333;
+  }
+
+  .job-item {
+    border-bottom: 1px solid #f2f2f2;
+    padding: 1rem 0;
+  }
+
+  .job-item:last-child {
+    border-bottom: none;
+  }
+
+  .job-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  .job-item p {
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Your Profile</h1>
+  </header>
+  <div class="container">
+    <section class="profile">
+      <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+      <h2 class="profile-name">John Doe</h2>
+      <p class="profile-email">john.doe@example.com</p>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Posted Jobs</h2>
+      </div>
+      <div id="jobs-list">
+        <!-- Dynamic content for posted jobs will be added here -->
+        <div class="job-item">
+          <h3>Frontend Developer</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="job-item">
+          <h3>UX/UI Designer</h3>
+          <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Example JavaScript for adding dynamic job posts
+    document.addEventListener('DOMContentLoaded', function() {
+      const jobsList = document.getElementById('jobs-list');
+
+      // Example data - replace with actual data fetching or hard-coded as needed
+      const jobsData = [
+        { title: 'Frontend Developer', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+        { title: 'UX/UI Designer', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+        // Add more job objects as needed
+      ];
+
+      // Function to display jobs
+      function displayJobs() {
+        jobsList.innerHTML = ''; // Clear previous content
+        jobsData.forEach(job => {
+          const jobItem = document.createElement('div');
+          jobItem.classList.add('job-item');
+          jobItem.innerHTML = `
+            <h3>${job.title}</h3>
+            <p>${job.description}</p>
+          `;
+          jobsList.appendChild(jobItem);
+        });
+      }
+
+      // Initial call to display jobs
+      displayJobs();
+    });
+  </script>
+</body>
+</html>
